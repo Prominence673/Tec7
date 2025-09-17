@@ -49,7 +49,21 @@ export default function Navbar() {
           <CustomLink to="/">
             <div className="nav-item">
               <IoHomeOutline />
-              <span className="nav-info">Casa</span>
+            </div>
+          </CustomLink>
+          <CustomLink to="/about">
+            <div className="nav-item">
+              <IoHomeOutline />
+            </div>
+          </CustomLink>
+          <CustomLink to="/carreras">
+            <div className="nav-item">
+              <IoHomeOutline />
+            </div>
+          </CustomLink>
+          <CustomLink to="/dashboard">
+            <div className="nav-item">
+              <IoHomeOutline />
             </div>
           </CustomLink>
         </ul>
