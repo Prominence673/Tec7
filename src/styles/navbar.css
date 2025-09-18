@@ -1,3 +1,4 @@
+/* ========  NAVBAR ======== */
 .nav-glass{
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
@@ -63,4 +64,68 @@
 .nav-item:hover{
     transform: translateY(-5px);
     background-color: rgba(205,205,205, 0.7);
+}
+/* ========  NOTEBOOKS / DESKTOP PEQUEÑO (≤1150px) ======== */
+@media (max-width: 1150px) {
+  .nav-glass {
+    width: 70%;
+    left: 15%;
+    height: 60px;          
+    border-radius: 30px;
+  }
+  .nav-links,
+  .nav-links-right {
+    gap: 40px;            
+  }
+  .nav-item {
+    font-size: 22px;    
+    padding: 8px;
+  }
+  .line {
+    height: 25px;          
+  }
+}
+/* ========  MÓVILES GRANDES (≤768px) ======== */
+@media (max-width: 768px) {
+  .nav-glass {
+    width: 90%;
+    left: 5%;
+    height: 50px;
+    border-radius: 20px;
+  }
+  .nav-links,
+  .nav-links-right {
+    gap: 20px;
+  }
+  .nav-item {
+    font-size: 18px;
+    padding: 6px;
+  }
+  .line {
+    height: 20px;
+  }
+}
+
+/* ========  MÓVILES PEQUEÑOS (≤480px) ======== */
+@media (max-width: 480px) {
+  .nav-glass {
+    flex-direction: column;      
+    height: auto;
+    padding: 10px 0;
+  }
+  .nav-links,
+  .nav-links-right {
+    width: 100%;
+    justify-content: center;
+    gap: 10px;
+    padding: 0;
+    flex-wrap: wrap;             
+  }
+  .nav-item {
+    font-size: 16px;
+    padding: 5px;
+  }
+  .line {
+    display: none;              
+  }
 }
