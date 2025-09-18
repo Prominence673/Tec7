@@ -1,0 +1,286 @@
+/* =======================
+        ESTILOS BASE 
+   ======================= */
+
+:root {
+  --primary: #1e90ff;
+  --bg: #ffffff;
+  --shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  --gray: gray;
+  --radius: 20px;
+  --font-size-msg: 12px;
+}
+
+/* ========== CONTENEDOR PRINCIPAL ========== */
+.chatbox,
+.chatbox-close {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: var(--bg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.chatbox {
+  width: 300px;
+  height: 400px;
+}
+
+.chatbox-close {
+  width: 300px;
+  height: 60px;
+}
+
+/* ========== HEADER ========== */
+.chat-header,
+.chat-header-close {
+  background-color: var(--bg);
+  width: 100%;
+  text-align: center;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.chat-header {
+  border-bottom: 2px solid rgba(168, 168, 168, 0.2);
+  height: 15%;
+}
+
+.chat-header-close {
+  height: 100%;
+}
+
+.chat-header-left,
+.chat-header-right {
+  height: 100%;
+  width: 50%;
+  font-size: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.chat-header-left {
+  justify-content: flex-start;
+  margin-left: 10px;
+}
+
+.chat-header-right {
+  justify-content: flex-end;
+  margin-right: 15px;
+  color: #000;
+  gap: 10px;
+}
+
+.icon-button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.chat-title {
+  margin: 0 0 0 10px;
+  padding: 0;
+}
+
+.chat-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  color: var(--primary);
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+/* ========== CONTENIDO ========== */
+.chat-form-container {
+  width: 100%;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  color: white;
+  font-weight: bold;
+}
+
+.chatlogs {
+  position: relative;
+  width: 90%;
+  height: 80%;
+  margin: 2% auto 0;
+  padding: 10px;
+  border-radius: var(--radius);
+  overflow-y: auto;
+  color: white;
+  gap: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ========== FORMULARIO ========== */
+.chat-form {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  width: 90%;
+  height: 15%;
+  margin: 2% auto 0;
+  padding: 10px;
+  border-radius: var(--radius);
+  gap: 10px;
+  color: white;
+}
+
+.chat-form input {
+  flex: 1;
+  height: 35px;
+  border-radius: var(--radius);
+  border: 1px solid #ccc;
+  padding: 0 10px;
+  font-size: 16px;
+}
+
+.chat-form button {
+  width: auto;
+  height: 35px;
+  font-size: 20px;
+  border-radius: var(--radius);
+  border: none;
+  background: transparent;
+  color: var(--primary);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* ========== MENSAJES ========== */
+.chat-bot,
+.chat-user {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  font-size: var(--font-size-msg);
+  overflow-x: hidden;
+}
+
+.chat-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  margin: 0;
+}
+
+.message-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  margin-left: 10px;
+  padding: 10px;
+  background: var(--primary);
+  border-radius: var(--radius);
+  max-width: 70%;
+  width: 100%;
+  word-wrap: break-word;
+  overflow-x: hidden;
+}
+
+.chat-message {
+  white-space: normal;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+}
+
+#ccuser {
+  margin: 0 10px 0 0;
+}
+
+/* ========== FECHA ========== */
+.chat-date {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.chat-date-main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.chat-date-main p {
+  margin: 0;
+  font-size: 15px;
+  color: var(--gray);
+}
+.chat-date p {
+  margin: 0;
+  font-size: 10px;
+  color: var(--gray);
+}
+
+
+/* ========== FOTO DE USUARIO ========== */
+.user-photo {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: var(--primary);
+  border: 1px solid var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  color: white;
+  font-weight: bold;
+}
+
+.user-photo img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+/* =======================
+   MEDIA QUERIES
+   ======================= */
+
+/* Teléfonos pequeños (≤480px) */
+@media (max-width: 480px) {
+  .chatbox,
+  .chatbox-close {
+    width: 90vw;
+    right: 5vw;
+  }
+  .chatbox { height: 70vh; }
+}
+
+/* Tablets (481px – 768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+  .chatbox,
+  .chatbox-close {
+    width: 350px;
+    right: 20px;
+  }
+}
+
+/* Notebooks/PC (≥769px) */
+@media (min-width: 769px) {
+  .chatbox,
+  .chatbox-close {
+    width: 300px;
+    right: 20px;
+  }
+}
