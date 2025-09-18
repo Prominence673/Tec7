@@ -3,6 +3,8 @@ import '../styles/Navbar.css';
 import {
   IoHomeOutline,
 } from "react-icons/io5";
+import { PiStudent } from "react-icons/pi";
+import { BsJournalText, BsTelephone, BsMic, BsPerson, BsClipboard} from "react-icons/bs";
 import { useState, useEffect } from 'react';
 
 function usePrefersColorScheme() {
@@ -53,17 +55,35 @@ export default function Navbar() {
           </CustomLink>
           <CustomLink to="/about">
             <div className="nav-item">
-              <IoHomeOutline />
+              <BsJournalText />
             </div>
           </CustomLink>
-          <CustomLink to="/carreras">
+          <CustomLink to="/careers">
             <div className="nav-item">
-              <IoHomeOutline />
+              <PiStudent />
             </div>
           </CustomLink>
+          <CustomLink to="/contact">
+            <div className="nav-item">
+              <BsTelephone />
+            </div>
+          </CustomLink>
+                    <CustomLink to="/radio">
+            <div className="nav-item">
+              <BsMic />
+            </div>
+          </CustomLink>
+          <CustomLink to="/projects">
+            <div className="nav-item">
+              <BsClipboard />
+            </div>
+          </CustomLink>
+        </ul>
+        <ul className="nav-links-right">
+          <span className='line'></span>
           <CustomLink to="/dashboard">
             <div className="nav-item">
-              <IoHomeOutline />
+              <BsPerson />
             </div>
           </CustomLink>
         </ul>

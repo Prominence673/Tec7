@@ -1,4 +1,4 @@
-export default function Carreras() {
+export default function Careers() {
     return (
         <>
         <div className="carreras-container">

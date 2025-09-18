@@ -17,23 +17,36 @@
     border-radius: 30px;
     
 }
+.line{
+    border-left: 2px solid black;
+    height: 30px;
+    opacity: 0.5;
+    
+}
 .nav-links{
     display: flex;
     align-items: center;
     list-style: none;
     text-align: center;
-    margin-right: 20px;
+    color: black;
+    gap: 50px;
+    width: 70%;
+    padding-left: 20px;
+}
+.nav-links-right{
+    display: flex;
+    align-items: center;
+    list-style: none;
+    text-align: center;
     color: black;
     gap: 40px;
-    width: 100%;
+    width: 30%;
+    padding-right: 20px;
+    justify-content: flex-end;
 }
-.nav-links a{
+.nav-links a, .nav-links-right a{
     text-decoration: none;
     color: black;
-}
-.nav-links a:hover{
-    color: #007bff;
-    
 }
 .nav-item{
     display: flex;
