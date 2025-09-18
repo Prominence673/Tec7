@@ -5,8 +5,8 @@ import {
 } from "react-icons/io5";
 import { PiStudent } from "react-icons/pi";
 import { BsJournalText, BsTelephone, BsMic, BsPerson, BsClipboard} from "react-icons/bs";
-import { useState, useEffect } from 'react';
-
+//import { useState, useEffect } from 'react';
+/*
 function usePrefersColorScheme() {
   const [isDarkMode, setIsDarkMode] = useState(false);
 
@@ -21,8 +21,9 @@ function usePrefersColorScheme() {
 
   return isDarkMode;
 }
-
+*/
 export default function Navbar() {
+  /* 
     const prefersDark = usePrefersColorScheme();
     const [manualDark, setManualDark] = useState(null); 
 
@@ -36,7 +37,7 @@ export default function Navbar() {
     const handleToggleDarkMode = () => {
     setManualDark(prev => prev === null ? !prefersDark : !prev);
     };
-
+  */
   return(
     <div className="nav-bg">
       <nav className="nav-glass">
