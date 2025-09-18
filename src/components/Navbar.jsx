@@ -82,7 +82,7 @@ export default function Navbar() {
         </ul>
         <ul className="nav-links-right">
           <span className='line'></span>
-          <CustomLink to="/dashboard">
+          <CustomLink to="/login">
             <div className="nav-item">
               <BsPerson />
             </div>
