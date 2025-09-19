@@ -102,18 +102,18 @@ body {
 }
 
 .model3d-container {
-  position: absolute;
-  left: -150px;   /* Ajusta para ubicar sobre el card */
-  top: -20px;    /* Ajusta para ubicar sobre el card */
-  width: 220px;
-  height: 360px;
-  z-index: 20;
-  pointer-events: none;
+  width: 100%;
+  max-width: 400px; /* Aumenta el ancho máximo para el modelo */
+  height: 300px;    /* Aumenta la altura para que el modelo no se corte */
+  margin: 0 auto 2rem auto; /* Centra el contenedor y añade margen inferior */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .model3d-container canvas {
-  width: 220px !important;
-  height: 220px !important;
+  width: 100% !important; /* Usa el ancho completo del contenedor */
+  height: 100% !important; /* Usa la altura completa del contenedor */
   background: transparent;
 }
 
@@ -371,16 +371,6 @@ body {
   .tecnicaturas-flex {
     flex-direction: column;
     align-items: center;
-  }
-  .model3d-container {
-    height: 120px;
-    margin-bottom: 1rem;
-  }
-  .model3d-container canvas {
-    width: 90px !important;
-    height: 90px !important;
-    position: static;
-    transform: rotate(-10deg) scale(1.1);
   }
   .tecnicaturas-list {
     flex-direction: column;
