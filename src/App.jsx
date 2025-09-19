@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar'
 import Chatbot from './components/Chatbot'
 import Home from './pages/Home'
@@ -10,12 +10,15 @@ import Radio from './pages/Radio'
 import './styles/App.css'
 
 function App() {
+  const location = useLocation();
+  const isLoginLocation = location.pathname === '/login';
 
   return (
     <>
     <div className='Container'>
-      <BrowserRouter>
+      { !isLoginLocation && (
         <Navbar />
+      )}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/careers" element={<Careers />} />
@@ -24,8 +27,9 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/radio" element={<Radio />} />
       </Routes>
-      <Chatbot />
-      </BrowserRouter>
+      { !isLoginLocation && (
+        <Chatbot />
+      )}
     </div>
     </>
   )
