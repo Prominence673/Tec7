@@ -4,18 +4,18 @@ import { OrbitControls, useGLTF } from '@react-three/drei';
 
 function ComputerModel() {
   const { scene } = useGLTF('/models/SimpleComputer.glb');
-  return <primitive object={scene} scale={6.5} />;
+  return <primitive object={scene} scale={4.5} rotation={[0.2, -0.4, 0]} />;
 }
 
 export default function Computer3D() {
   return (
-    <Canvas style={{ height: 300 }}>
+    <Canvas>
       <ambientLight intensity={0.7} />
       <directionalLight position={[2, 2, 2]} />
       <Suspense fallback={null}>
         <ComputerModel />
       </Suspense>
-      <OrbitControls enablePan={false} />
+      <OrbitControls enabled={false} />
     </Canvas>
   );
 }
