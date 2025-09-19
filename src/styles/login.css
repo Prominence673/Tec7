@@ -1,0 +1,241 @@
+/* =========================================================
+   PALETA DE COLORES – CUSTOM PROPERTIES
+   ========================================================= */
+:root {
+  --gradient-start: #4a90e2;
+  --gradient-middle: #9b59b6;
+  --gradient-end:   #8e44ad;
+
+  --card-bg: #ffffff;
+  --card-shadow: 0 4px 30px rgba(0, 0, 0, 0.25);
+
+  --text-main: #222;
+  --text-muted: #555;
+  --text-light: #ffffff;
+
+  --input-bg: #f9f9f9;
+  --input-border: #ccc;
+  --input-border-focus: #4a90e2;
+  --input-text: #222;
+
+  --button-bg: #4a90e2;
+  --button-bg-hover: #357ab7;
+  --button-text: #fff;
+
+  --checkbox-border: #666;
+}
+
+/* =========================================================
+   CONTENEDOR PRINCIPAL
+   ========================================================= */
+.login-main-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+
+  background: linear-gradient(135deg,
+    var(--gradient-start),
+    var(--gradient-middle),
+    var(--gradient-end));
+  background-size: 400% 400%;       
+  animation: gradient-move 15s ease infinite;
+}
+
+@keyframes gradient-move {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.login-container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* =========================================================
+   TARJETA DE LOGIN
+   ========================================================= */
+.login {
+  max-width: 500px;
+  max-height: 600px;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* =========================================================
+   CABECERA / TÍTULO
+   ========================================================= */
+.title-login {
+  width: 100%;
+  height: 13%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: var(--card-bg);
+  box-shadow: var(--card-shadow);
+  border-radius: 20px;
+  color: var(--text-main);
+}
+
+.title-login h1,
+.title-login h4 {
+  margin: 0px;
+  padding: 0px;
+}
+
+.title-login h4 {
+  font-weight: normal;
+  color: var(--text-muted);
+}
+
+/* =========================================================
+   FORMULARIO DE LOGIN
+   ========================================================= */
+.form-login {
+  width: 100%;
+  height: 82%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--card-bg);
+  box-shadow: var(--card-shadow);
+  border-radius: 20px;
+}
+
+.form-login form {
+  width: 70%;
+  height: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.form-login form label {
+  width: 100%;
+}
+
+.form-login form label p {
+  margin: 0 0 4px;
+  padding: 0;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.input {
+  width: 100%;
+  height: 30px;
+  background: transparent;
+  border-radius: 8px 8px 0px 0px;;
+  border: none;
+  border-bottom: 1px solid var(--input-border);
+  padding: 0;
+  color: var(--input-text);
+  font-size: 15px;
+  outline: none;
+  transition: border-color 0.25s, box-shadow 0.25s;
+}
+
+.input:focus {
+ border-bottom: 1px solid var(--input-border-focus);
+}
+
+/* Botón de login */
+.BtLogin {
+  width: 100%;
+  height: 45px;
+  background-color: var(--button-bg);
+  color: var(--button-text);
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: background-color 0.25s, transform 0.4s;
+}
+
+.BtLogin:hover {
+  background-color: var(--button-bg-hover);
+  transform: translateY(-1px);
+}
+
+.BtLogin:active {
+  transform: translateY(0);
+}
+
+/* =========================================================
+   OPCIONES ADICIONALES (checkbox, etc.)
+   ========================================================= */
+.check-container {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: center;
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.checkbox {
+  accent-color: var(--input-border-focus);
+  border: 1px solid var(--checkbox-border);
+  border-radius: 4px;
+}
+
+/* =========================================================
+   INFORMACIÓN DE LOGIN (mensajes extra, subtítulos)
+   ========================================================= */
+.login-info {
+  width: 80%;
+  height: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 5px;
+  margin-bottom: 10px;
+}
+
+.login-info h2,
+.login-info h4 {
+  margin: 0;
+  padding: 0;
+  color: var(--text-main);
+}
+.login-info h2{
+    font-size: 25px;
+}
+.login-info h4 {
+  font-weight: normal;
+  color: var(--text-muted);
+}
+
+/* =========================================================
+   COPYRIGHT / PIE DE PÁGINA
+   ========================================================= */
+.copyright-container {
+  width: 100%;
+  height: 5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.copyright-container h4 {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+  color: var(--text-light);
+}
