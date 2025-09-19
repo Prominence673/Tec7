@@ -26,6 +26,16 @@ export default function Home() {
             <li>Charlas con empresas tecnológicas y creativas durante septiembre.</li>
           </ul>
         </div>
+      <section className="home-news-banner">
+        <img src="/images/evento.jpg" alt="Evento destacado" className="news-img" />
+        <div>
+          <h2>📰 Novedades</h2>
+          <ul>
+            <li>Inscripción 2025 abierta: ¡Sumate a la próxima generación de técnicos!</li>
+            <li>Nuevo laboratorio de informática y multimedia inaugurado.</li>
+            <li>Charlas con empresas tecnológicas y creativas durante septiembre.</li>
+          </ul>
+        </div>
       </section>
 
       <section className="home-tecnicaturas">
@@ -56,6 +66,7 @@ export default function Home() {
         <button className="home-btn">Contactanos</button>
         <p>&copy; 2025 Escuela Técnica N°7 "José Ingenieros"</p>
       </footer>
+    </main>
     </main>
   );
 }

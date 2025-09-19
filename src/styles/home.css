@@ -5,8 +5,16 @@
   --background: #f6f8fa;
   --white: #fff;
   --gray: #e9ecf2;
+  --primary-blue: #1a2a4f;
+  --secondary-blue: #2e4a7d;
+  --accent-blue: #3a6ea5;
+  --background: #f6f8fa;
+  --white: #fff;
+  --gray: #e9ecf2;
   --text-dark: #222;
   --text-light: #fff;
+  --border-radius: 14px;
+  --shadow: 0 2px 12px rgba(26, 42, 79, 0.08);
   --border-radius: 14px;
   --shadow: 0 2px 12px rgba(26, 42, 79, 0.08);
 }
@@ -31,8 +39,10 @@ body {
 
 .home-header {
   background: linear-gradient(90deg, var(--primary-blue) 80%, var(--accent-blue) 100%);
+  background: linear-gradient(90deg, var(--primary-blue) 80%, var(--accent-blue) 100%);
   color: var(--text-light);
   text-align: center;
+  padding: 2.5rem 1rem 1.5rem 1rem;
   padding: 2.5rem 1rem 1.5rem 1rem;
   border-bottom-left-radius: var(--border-radius);
   border-bottom-right-radius: var(--border-radius);
@@ -42,18 +52,32 @@ body {
 .home-logo {
   width: 80px;
   height: 80px;
+  width: 80px;
+  height: 80px;
   margin-bottom: 1rem;
   border-radius: 50%;
   background: var(--white);
+  background: var(--white);
   object-fit: contain;
+  box-shadow: 0 2px 8px rgba(26, 42, 79, 0.12);
   box-shadow: 0 2px 8px rgba(26, 42, 79, 0.12);
 }
 
 .home-slogan {
+.home-slogan {
   font-size: 1.2rem;
+  margin-top: 0.7rem;
   margin-top: 0.7rem;
   font-weight: 400;
   color: var(--accent-blue);
+  letter-spacing: 0.5px;
+}
+
+.home-news-banner {
+  background: var(--secondary-blue);
+  color: var(--text-light);
+  margin: 2rem 0 1.5rem 0;
+  padding: 1.2rem 1.5rem;
   letter-spacing: 0.5px;
 }
 
@@ -72,7 +96,11 @@ body {
 .home-news-banner h2 {
   margin-top: 0;
   font-size: 1.2rem;
+.home-news-banner h2 {
+  margin-top: 0;
+  font-size: 1.2rem;
   font-weight: 600;
+  letter-spacing: 1px;
   letter-spacing: 1px;
 }
 
@@ -188,6 +216,7 @@ body {
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
+  box-shadow: 0 2px 6px rgba(26, 42, 79, 0.10);
   box-shadow: 0 2px 6px rgba(26, 42, 79, 0.10);
   transition: background 0.2s;
 }
@@ -341,6 +370,9 @@ body {
 }
 
 @media (max-width: 800px) {
+  .tecnicaturas-list {
+    flex-direction: column;
+    gap: 1rem;
   .tecnicaturas-list {
     flex-direction: column;
     gap: 1rem;
