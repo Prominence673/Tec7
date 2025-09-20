@@ -1,7 +1,18 @@
 import '../styles/login.css'
 import BackButton from '../components/BackButton';
+import {useState} from 'react'
+import handleSubmit from '../components/handleSubmit';
 
 export default function Login() {
+    const [form, setForm] = useState({ username: '', email: '', password: '', checked: false});
+    let dire = "/api/controller/loginController.php";
+    let tipo = 'application/json';
+    const handleChange = async (e) => {
+        const { name, value, checked } = e.target;
+        const rememberme = 'rememberme';
+        setForm(prev => ({ ...prev, [name]: value }));
+        setForm(prev => ({ ...prev, [rememberme]: checked }));
+    };
     return (
         <>
         <div className='login-main-container'>
@@ -17,18 +28,24 @@ export default function Login() {
                         <h2>Sistema de login</h2>
                         <h4>¡Hola!, aqui deberas ingresar tus datos para iniciar sesion</h4>
                     </div>
-                    <form>
-                        <label htmlFor="user">
+                    <form onSubmit={(e) => {handleSubmit(e,{ dire, datos: form, tipo });}}>
+                        <label htmlFor="username">
                             <p>Usuario</p>
-                            <input className='input' type="text" name="user" id="user" required/>
+                            <input className='input' type="text" name="username" id="username" value={form.username} onChange={handleChange} required/>
+                        </label>
+                        <label htmlFor="email">
+                            <p>Email</p>
+                            <input className='input' type="text" name="email" id="email" value={form.email} onChange={handleChange} required/>
                         </label>
                         <label htmlFor="password">
                             <p>Contraseña</p>
-                            <input className='input' type="password" name="password" id="password" required/>
+                            <input className='input' type="password" name="password" id="password" value={form.password} onChange={handleChange} required/>
                         </label>
                         <div className='check-container'>
                             <p>Mostrar contraseña</p>
                             <input type="checkbox" id="showpassword" className='checkbox' name='showpassword' />
+                            <p>Recordame</p>
+                            <input type="checkbox" id="rememberme" className='checkbox' name='rememberme' onChange={handleChange} />
                         </div>
                         <button className='BtLogin'>Ingresar</button>
                     </form>

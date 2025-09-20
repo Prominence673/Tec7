@@ -1,0 +1,26 @@
+[20-Sep-2025 07:24:21 Europe/Berlin] PHP Warning:  Undefined variable $mail in C:\xampp\htdocs\Tec7\api\controller\loginController.php on line 28
+[20-Sep-2025 07:24:39 Europe/Berlin] PHP Warning:  Undefined variable $mail in C:\xampp\htdocs\Tec7\api\controller\loginController.php on line 28
+[20-Sep-2025 07:25:11 Europe/Berlin] PHP Warning:  Undefined variable $mail in C:\xampp\htdocs\Tec7\api\controller\loginController.php on line 28
+[20-Sep-2025 07:25:13 Europe/Berlin] PHP Warning:  Undefined variable $mail in C:\xampp\htdocs\Tec7\api\controller\loginController.php on line 28
+[20-Sep-2025 07:26:46 Europe/Berlin] PHP Warning:  Undefined variable $mail in C:\xampp\htdocs\Tec7\api\controller\loginController.php on line 28
+[20-Sep-2025 07:26:47 Europe/Berlin] PHP Warning:  Undefined variable $mail in C:\xampp\htdocs\Tec7\api\controller\loginController.php on line 28
+[20-Sep-2025 07:27:21 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: Unsupported operand types: string + string in C:\xampp\htdocs\Tec7\api\controller\loginController.php:24
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Tec7\api\controller\loginController.php on line 24
+[20-Sep-2025 07:27:34 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: Unsupported operand types: string + string in C:\xampp\htdocs\Tec7\api\controller\loginController.php:24
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Tec7\api\controller\loginController.php on line 24
+[20-Sep-2025 07:27:50 Europe/Berlin] PHP Warning:  Undefined variable $mail in C:\xampp\htdocs\Tec7\api\controller\loginController.php on line 28
+[20-Sep-2025 07:27:57 Europe/Berlin] PHP Warning:  Undefined variable $mail in C:\xampp\htdocs\Tec7\api\controller\loginController.php on line 28
+[20-Sep-2025 07:29:27 Europe/Berlin] PHP Warning:  Undefined variable $rememberme in C:\xampp\htdocs\Tec7\api\controller\loginController.php on line 38
+[20-Sep-2025 07:29:27 Europe/Berlin] PHP Warning:  Undefined array key "u_id" in C:\xampp\htdocs\Tec7\api\controller\loginController.php on line 54
+[20-Sep-2025 07:29:27 Europe/Berlin] PHP Warning:  Undefined array key "u_username" in C:\xampp\htdocs\Tec7\api\controller\loginController.php on line 55
+[20-Sep-2025 07:30:21 Europe/Berlin] PHP Warning:  Undefined variable $rememberme in C:\xampp\htdocs\Tec7\api\controller\loginController.php on line 38
+[20-Sep-2025 07:30:21 Europe/Berlin] PHP Warning:  Undefined array key "u_id" in C:\xampp\htdocs\Tec7\api\controller\loginController.php on line 54
+[20-Sep-2025 07:30:21 Europe/Berlin] PHP Warning:  Undefined array key "u_username" in C:\xampp\htdocs\Tec7\api\controller\loginController.php on line 55
+[20-Sep-2025 07:31:24 Europe/Berlin] PHP Warning:  Undefined variable $rememberme in C:\xampp\htdocs\Tec7\api\controller\loginController.php on line 38
+[20-Sep-2025 07:31:24 Europe/Berlin] PHP Warning:  Undefined array key "user" in C:\xampp\htdocs\Tec7\api\controller\loginController.php on line 55
+[20-Sep-2025 07:31:48 Europe/Berlin] PHP Warning:  Undefined variable $rememberme in C:\xampp\htdocs\Tec7\api\controller\loginController.php on line 38
+[20-Sep-2025 07:32:58 Europe/Berlin] PHP Warning:  Undefined variable $rememberme in C:\xampp\htdocs\Tec7\api\controller\loginController.php on line 38

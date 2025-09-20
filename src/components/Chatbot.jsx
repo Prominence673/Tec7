@@ -4,8 +4,8 @@ import personaImg from '../assets/mono-pensando.jpg';
 import { SiGooglegemini } from "react-icons/si";
 import { IoMdClose, IoMdRefresh, IoMdOpen} from "react-icons/io";
 import { useState /*, useRef, useEffect */} from 'react';
-import axios from 'axios';
 import { FaRegPaperPlane } from "react-icons/fa";
+import handleSubmit from '../components/handleSubmit';
 
 function Modal({fullDateTime}) {
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -58,17 +58,6 @@ function Modal({fullDateTime}) {
     </>
   );
 }
-async function submitData({ datos }) {
-    try {
-        const response = await axios.post("/api/model/aplication", datos,
-         { headers: { 'Content-Type': 'application/json' } }
-         );
-        //console.log(response.data);
-        return response.data 
-    } catch (error) {
-        console.error("Error al enviar datos:", error);
-    }
-}
 function FormMessage({ fullDateTime }) {
     const [chatInput, setChatInput] = useState("");
     const [chatHistory, setChatHistory] = useState([
@@ -79,8 +68,9 @@ function FormMessage({ fullDateTime }) {
             date: fullDateTime
         }
     ]);
-
-    const handleSubmit = async (e) => {
+    let dire = "/api/model/AI/aplication";
+    let tipo = 'application/json';
+    const eventSubmit = async (e) => {
         e.preventDefault();
 
         const newMessage = { 
@@ -93,7 +83,7 @@ function FormMessage({ fullDateTime }) {
         setChatHistory(prev => [...prev, newMessage]);
         setChatInput("");
 
-        const respuesta = await submitData({ datos: newMessage.value });
+        const respuesta = await handleSubmit(e,{ dire, datos: newMessage.value, tipo });
         if (respuesta) {
             const botMessage = {
                 id: Date.now() + 1, 
@@ -106,7 +96,7 @@ function FormMessage({ fullDateTime }) {
     };
 
     return (
-        <form className="chat-form-container" onSubmit={handleSubmit}>
+        <form className="chat-form-container" onSubmit={eventSubmit}>
             <div className='chat-date'><p>{fullDateTime}</p></div>
             <div className="chatlogs">
                 {chatHistory.map(msg => (

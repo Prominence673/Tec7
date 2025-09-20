@@ -7,7 +7,7 @@ from google import genai
 app = Flask(__name__)
 CORS(app)
 
-@app.route('/api/model/aplication', methods=['POST'])
+@app.route('/api/model/AI/aplication', methods=['POST'])
 def recibir_datos():
 
     datos_recibidos = request.json  
