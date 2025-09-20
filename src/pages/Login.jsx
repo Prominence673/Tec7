@@ -2,9 +2,11 @@ import '../styles/login.css'
 import BackButton from '../components/BackButton';
 import {useState} from 'react'
 import handleSubmit from '../components/handleSubmit';
+import { BubbleBackground } from "@/components/bubble-background";
 
 export default function Login() {
     const [form, setForm] = useState({ username: '', email: '', password: '', checked: false});
+    const [check, setChecked] = useState(false);
     let dire = "/api/controller/loginController.php";
     let tipo = 'application/json';
     const handleChange = async (e) => {
@@ -13,8 +15,21 @@ export default function Login() {
         setForm(prev => ({ ...prev, [name]: value }));
         setForm(prev => ({ ...prev, [rememberme]: checked }));
     };
+    const handleShowPassword = async (e) => {
+        let checked = e.target.checked;
+        setChecked(checked);
+        const InPass = document.getElementById('password');
+
+        if(checked){
+            InPass.type = 'text';
+        }
+        else{
+            InPass.type = 'password';
+        }
+    };
     return (
         <>
+    <BubbleBackground interactive className="absolute inset-0 flex items-center justify-center">
         <div className='login-main-container'>
             <BackButton/> 
             <div className="login-container">
@@ -31,22 +46,26 @@ export default function Login() {
                     <form onSubmit={(e) => {handleSubmit(e,{ dire, datos: form, tipo });}}>
                         <label htmlFor="username">
                             <p>Usuario</p>
-                            <input className='input' type="text" name="username" id="username" value={form.username} onChange={handleChange} required/>
+                            <input className='input' type="text" name="username" id="username" value={form.username} onChange={handleChange} maxLength={30} required/>
                         </label>
                         <label htmlFor="email">
                             <p>Email</p>
-                            <input className='input' type="text" name="email" id="email" value={form.email} onChange={handleChange} required/>
+                            <input className='input' type="text" name="email" id="email" value={form.email} onChange={handleChange} maxLength={255} required/>
                         </label>
                         <label htmlFor="password">
                             <p>Contraseña</p>
-                            <input className='input' type="password" name="password" id="password" value={form.password} onChange={handleChange} required/>
+                            <input className='input' type={check === true ? 'text' : 'password'} name="password" id="password" value={form.password} onChange={handleChange} maxLength={32} required/>
                         </label>
                         <div className='check-container'>
+                            <label htmlFor="showpassword">
                             <p>Mostrar contraseña</p>
-                            <input type="checkbox" id="showpassword" className='checkbox' name='showpassword' />
+                            <input type="checkbox" id="showpassword" className='checkbox' name='showpassword' onChange={handleShowPassword} />
+                            </label>
+                            <label htmlFor="rememberme">
                             <p>Recordame</p>
                             <input type="checkbox" id="rememberme" className='checkbox' name='rememberme' onChange={handleChange} />
-                        </div>
+                            </label>
+                        </div> 
                         <button className='BtLogin'>Ingresar</button>
                     </form>
                 </div>
@@ -55,7 +74,8 @@ export default function Login() {
                 </div>
             </div>
         </div>
-        </div>
-        </>
+    </div>
+</BubbleBackground>
+</>
     );
 } 

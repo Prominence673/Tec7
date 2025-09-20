@@ -32,30 +32,18 @@
 .login-main-container {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  min-height: 100%;
   width: 100%;
-
-  background: linear-gradient(135deg,
-    var(--gradient-1),
-    var(--gradient-2),
-    var(--gradient-3),
-    var(--gradient-4));
-  background-size: 400% 400%;       
-  animation: gradient-move 12s ease infinite;
+  position: relative;
 }
-
-@keyframes gradient-move {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
 .login-container {
   height: 100%;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  position: absolute;
+  z-index: 10;
 }
 
 /* =========================================================
@@ -182,13 +170,17 @@
    ========================================================= */
 .check-container {
   display: flex;
-  flex-direction: row;
-  gap: 8px;
+  flex-direction: column;
   align-items: center;
   font-size: 14px;
   color: var(--text-muted);
 }
-
+.check-container label{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
 .checkbox {
   accent-color: var(--input-border-focus);
   border: 1px solid var(--checkbox-border);

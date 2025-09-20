@@ -7,6 +7,7 @@ import Login from './pages/Login'
 import About from './pages/About'
 import Contact from './pages/Contact'
 import Radio from './pages/Radio'
+import Projects from './pages/Projects'
 import './styles/App.css'
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/radio" element={<Radio />} />
+        <Route path="/projects" element={<Projects />} />
       </Routes>
       { !isLoginLocation && (
         <Chatbot />
