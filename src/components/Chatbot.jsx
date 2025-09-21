@@ -4,8 +4,8 @@ import personaImg from '../assets/mono-pensando.jpg';
 import { SiGooglegemini } from "react-icons/si";
 import { IoMdClose, IoMdRefresh, IoMdOpen} from "react-icons/io";
 import { useState /*, useRef, useEffect */} from 'react';
-import axios from 'axios';
 import { FaRegPaperPlane } from "react-icons/fa";
+import handleSubmit from '../components/handleSubmit';
 
 function Modal({fullDateTime}) {
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -58,63 +58,60 @@ function Modal({fullDateTime}) {
     </>
   );
 }
-async function submitData({ datos }) {
-    try {
-        const response = await axios.post("/api/model/aplication", datos,
-         { headers: { 'Content-Type': 'application/json' } }
-         );
-        //console.log(response.data);
-        return response.data 
-    } catch (error) {
-        console.error("Error al enviar datos:", error);
-    }
-}
 function FormMessage({ fullDateTime }) {
     const [chatInput, setChatInput] = useState("");
     const [chatHistory, setChatHistory] = useState([
         {
             id: Date.now(),
-            sender: "bot",
-            value: "Hola! ¿En qué puedo ayudarte?",
+            role: "bot",
+            parts: "Hola! ¿En qué puedo ayudarte?",
             date: fullDateTime
         }
     ]);
-
-    const handleSubmit = async (e) => {
+    const [loading, setLoading] = useState(false);
+    let dire = "/api/model/AI/aplication";
+    let tipo = 'application/json';
+    const eventSubmit = async (e) => {
         e.preventDefault();
+        if (loading) return;
 
         const newMessage = { 
             id: Date.now(),
-            sender: "user",
-            value: chatInput,
+            role: "user",
+            parts: chatInput,
             date: fullDateTime
         };
 
         setChatHistory(prev => [...prev, newMessage]);
         setChatInput("");
+        setLoading(true);
 
-        const respuesta = await submitData({ datos: newMessage.value });
-        if (respuesta) {
-            const botMessage = {
-                id: Date.now() + 1, 
-                sender: "bot",
-                value: respuesta,
-                date: fullDateTime
-            };
-            setChatHistory(prev => [...prev, botMessage]);
+        try {
+            const respuesta = await handleSubmit(e,{ dire, datos: newMessage.parts, tipo });
+            if (respuesta) {
+                const botMessage = {
+                    id: Date.now() + 1, 
+                    role: "bot",
+                    parts: respuesta,
+                    date: fullDateTime
+                };
+                setChatHistory(prev => [...prev, botMessage]);
+            }
+        } finally {
+            setLoading(false); 
         }
     };
 
     return (
-        <form className="chat-form-container" onSubmit={handleSubmit}>
+        <form className="chat-form-container" onSubmit={eventSubmit}>
             <div className='chat-date'><p>{fullDateTime}</p></div>
             <div className="chatlogs">
                 {chatHistory.map(msg => (
                     <div key={msg.id} className="chat-container">
-                        {msg.sender === "user" ? (
+                        {msg.role === "user" ? (
                             <div className="chat-user">
                                 <div className="message-container" id="ccuser">
-                                    <p className="chat-message">{msg.value}</p>
+                                    <p className="chat-message">{msg.parts}</p>
                                 </div>
                                 <div className="user-photo">
                                     <img src={personaImg} alt="usuario" />
@@ -126,7 +123,7 @@ function FormMessage({ fullDateTime }) {
                                     <img src={robotImg} alt="robot" />
                                 </div>
                                 <div className="message-container">
-                                    <p className="chat-message">{msg.value}</p>
+                                    <p className="chat-message">{msg.parts}</p>
                                 </div>
                             </div>
                         )}
@@ -139,10 +136,11 @@ function FormMessage({ fullDateTime }) {
                 <input
                     type="text"
                     name="chat"
-                    placeholder="Pregúntame lo que sea"
+                    placeholder={loading ? 'Generando respuesta' : 'Preguntame lo que sea'}
                     value={chatInput}
                     onChange={e => setChatInput(e.target.value)}
                     autoComplete='off'
+                    disabled={loading}
                     required
                 />
                 <button><FaRegPaperPlane /></button>

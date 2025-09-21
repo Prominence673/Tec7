@@ -1,10 +1,12 @@
 .back-container{
-    position: relative;
+    position: absolute;
+    z-index: 1000;
     top: 5%;
     left: 5%;
     width: 60px;
     height: 60px;
     background-color: white;
+    box-shadow: var(--card-shadow);
     border-radius: 100%;
     color: black;
     display: flex;

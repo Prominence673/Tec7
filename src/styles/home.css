@@ -2,17 +2,17 @@
   --primary-blue: #1a2a4f;
   --secondary-blue: #2e4a7d;
   --accent-blue: #3a6ea5;
-  --background: #f6f8fa;
+  --home-background: #f6f8fa;
   --white: #fff;
   --gray: #e9ecf2;
   --text-dark: #222;
-  --text-light: #fff;
+  --h-text-light: #fff;
   --border-radius: 14px;
   --shadow: 0 2px 12px rgba(26, 42, 79, 0.08);
 }
 
 body {
-  background: var(--background);
+  background: var(--home-background);
   font-family: 'Segoe UI', Arial, sans-serif;
   color: var(--text-dark);
   margin: 0;
@@ -21,9 +21,6 @@ body {
 
 .home-main {
   width: 100%;
-  padding: 0 1rem;
-  position: relative;
-  z-index: 3;
   display: flex;
   flex-direction: column;
   align-items: center; /* Centra los hijos horizontalmente */
@@ -31,7 +28,7 @@ body {
 
 .home-header {
   background: linear-gradient(90deg, var(--primary-blue) 80%, var(--accent-blue) 100%);
-  color: var(--text-light);
+  color: var(--h-text-light);
   text-align: center;
   padding: 2.5rem 1rem 1.5rem 1rem;
   border-bottom-left-radius: var(--border-radius);
@@ -59,7 +56,7 @@ body {
 
 .home-news-banner {
   background: var(--secondary-blue);
-  color: var(--text-light);
+  color: var(--h-text-light);
   margin: 2rem 0 1.5rem 0;
   padding: 1.2rem 1.5rem;
   border-radius: var(--border-radius);
@@ -166,7 +163,7 @@ body {
 
 .home-footer {
   background: var(--primary-blue);
-  color: var(--text-light);
+  color: var(--h-text-light);
   text-align: center;
   padding: 1.5rem 0 1rem 0;
   border-top-left-radius: var(--border-radius);
@@ -180,7 +177,7 @@ body {
 
 .home-btn {
   background: var(--accent-blue);
-  color: var(--text-light);
+  color: var(--h-text-light);
   border: none;
   border-radius: 8px;
   padding: 0.7rem 1.5rem;
@@ -209,9 +206,6 @@ body {
 }
 
 .info-img {
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -236,7 +230,7 @@ body {
 /* Hero section fuera del contenedor limitado */
 .hero-section {
   position: relative;
-  width: 100vw;   
+  width: 100%;   
   margin: 0;     
   left: 0;       
   right: 0;
@@ -249,9 +243,6 @@ body {
 }
 
 .hero-img {
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;   /* ✅ Antes: 100vw */
   height: 100%;
   object-fit: cover;
@@ -262,7 +253,7 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100vw;
+  width: 100%;
   height: 100%;
   z-index: 2;
   background: rgba(26, 42, 79, 0.65); /* azul oscuro con opacidad */
@@ -295,9 +286,6 @@ body {
 
 /* Ajusta el resto de la página para que no se solape con el hero */
 .home-main {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 0 1rem;
   position: relative;
   z-index: 3;
 }
