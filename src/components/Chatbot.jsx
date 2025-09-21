@@ -63,35 +63,42 @@ function FormMessage({ fullDateTime }) {
     const [chatHistory, setChatHistory] = useState([
         {
             id: Date.now(),
-            sender: "bot",
-            value: "Hola! ¿En qué puedo ayudarte?",
+            role: "bot",
+            parts: "Hola! ¿En qué puedo ayudarte?",
             date: fullDateTime
         }
     ]);
+    const [loading, setLoading] = useState(false);
     let dire = "/api/model/AI/aplication";
     let tipo = 'application/json';
     const eventSubmit = async (e) => {
         e.preventDefault();
+        if (loading) return;
 
         const newMessage = { 
             id: Date.now(),
-            sender: "user",
-            value: chatInput,
+            role: "user",
+            parts: chatInput,
             date: fullDateTime
         };
 
         setChatHistory(prev => [...prev, newMessage]);
         setChatInput("");
+        setLoading(true);
 
-        const respuesta = await handleSubmit(e,{ dire, datos: newMessage.value, tipo });
-        if (respuesta) {
-            const botMessage = {
-                id: Date.now() + 1, 
-                sender: "bot",
-                value: respuesta,
-                date: fullDateTime
-            };
-            setChatHistory(prev => [...prev, botMessage]);
+        try {
+            const respuesta = await handleSubmit(e,{ dire, datos: newMessage.parts, tipo });
+            if (respuesta) {
+                const botMessage = {
+                    id: Date.now() + 1, 
+                    role: "bot",
+                    parts: respuesta,
+                    date: fullDateTime
+                };
+                setChatHistory(prev => [...prev, botMessage]);
+            }
+        } finally {
+            setLoading(false); 
         }
     };
 
@@ -101,10 +108,10 @@ function FormMessage({ fullDateTime }) {
             <div className="chatlogs">
                 {chatHistory.map(msg => (
                     <div key={msg.id} className="chat-container">
-                        {msg.sender === "user" ? (
+                        {msg.role === "user" ? (
                             <div className="chat-user">
                                 <div className="message-container" id="ccuser">
-                                    <p className="chat-message">{msg.value}</p>
+                                    <p className="chat-message">{msg.parts}</p>
                                 </div>
                                 <div className="user-photo">
                                     <img src={personaImg} alt="usuario" />
@@ -116,7 +123,7 @@ function FormMessage({ fullDateTime }) {
                                     <img src={robotImg} alt="robot" />
                                 </div>
                                 <div className="message-container">
-                                    <p className="chat-message">{msg.value}</p>
+                                    <p className="chat-message">{msg.parts}</p>
                                 </div>
                             </div>
                         )}
@@ -129,10 +136,11 @@ function FormMessage({ fullDateTime }) {
                 <input
                     type="text"
                     name="chat"
-                    placeholder="Pregúntame lo que sea"
+                    placeholder={loading ? 'Generando respuesta' : 'Preguntame lo que sea'}
                     value={chatInput}
                     onChange={e => setChatInput(e.target.value)}
                     autoComplete='off'
+                    disabled={loading}
                     required
                 />
                 <button><FaRegPaperPlane /></button>
