@@ -43,8 +43,12 @@ if ($rememberme) {
 session_start();
 
 $id_user = $login->bringUser($email);
-
-$_SESSION['usuario'] = [
+if($id_user === null){
+    echo json_encode(["success" => false,
+    "error" => "Email invalido"]);
+    exit;
+}
+$_SESSION['user'] = [
     "id" => $id_user['id'],
     "username" => $id_user['username'],
     "email" => $email

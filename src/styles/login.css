@@ -170,16 +170,17 @@
    ========================================================= */
 .check-container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   font-size: 14px;
   color: var(--text-muted);
+  width: 100%;
 }
 .check-container label{
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 10px;
+  gap: 5px;
 }
 .checkbox {
   accent-color: var(--input-border-focus);
@@ -232,4 +233,65 @@
   padding: 0;
   font-weight: normal;
   color: var(--text-light);
+}
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+/* ≤768px */
+@media (max-width: 768px) {
+  .form-login form {
+    width: 85%;
+  }
+  .login-info {
+    width: 85%;
+  }
+  .login-info h2 {
+    font-size: 22px;
+  }
+  .BtLogin {
+    height: 42px;
+    font-size: 15px;
+  }
+}
+
+/* ≤576px */
+@media (max-width: 576px) {
+  .title-login h1 {
+    font-size: 24px;
+  }
+  .title-login h4 {
+    font-size: 14px;
+  }
+  .form-login form {
+    width: 95%;
+    gap: 8px;
+  }
+  .input {
+    height: 32px;
+    font-size: 14px;
+  }
+  .BtLogin {
+    height: 40px;
+    font-size: 14px;
+  }
+  .login-info h2 {
+    font-size: 20px;
+  }
+}
+
+/* ≤400px */
+@media (max-width: 400px) {
+  .title-login h1 {
+    font-size: 20px;
+  }
+  .login-info h2 {
+    font-size: 18px;
+  }
+  .login-info h4 {
+    font-size: 13px;
+  }
+  .check-container {
+    font-size: 13px;
+  }
 }

@@ -1,32 +1,60 @@
 import '../styles/login.css'
-import BackButton from '../components/BackButton';
-import {useState} from 'react'
-import handleSubmit from '../components/handleSubmit';
+import BackButton from '@/components/BackButton';
+import { useState, useEffect } from 'react'
+import handleSubmit from '@/components/handleSubmit';
+import handleChecksession from '@/components/handleChecksession';
 import { BubbleBackground } from "@/components/bubble-background";
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 export default function Login() {
+    const navigate = useNavigate();
     const [form, setForm] = useState({ username: '', email: '', password: '', checked: false});
     const [check, setChecked] = useState(false);
+
     let dire = "/api/controller/loginController.php";
     let tipo = 'application/json';
+
+    useEffect(() => {
+        const handleCheck = async () => {
+        const response = await handleChecksession();
+        if (response.loggedIn) {
+            navigate('/');
+        }
+        };
+        handleCheck();
+    }, [navigate]);
+    
     const handleChange = async (e) => {
         const { name, value, checked } = e.target;
         const rememberme = 'rememberme';
         setForm(prev => ({ ...prev, [name]: value }));
         setForm(prev => ({ ...prev, [rememberme]: checked }));
     };
+
     const handleShowPassword = async (e) => {
         let checked = e.target.checked;
         setChecked(checked);
         const InPass = document.getElementById('password');
 
-        if(checked){
-            InPass.type = 'text';
-        }
-        else{
+        if(!checked){
             InPass.type = 'password';
+            return
+            
         }
+        InPass.type = 'text';
     };
+    
+    const handleRedirect = async (e) => {
+        const response = await handleSubmit(e,{ dire, datos: form, tipo });
+        
+        if(!response.success){
+            toast.error(response.error || 'Ha ocurrido un problema');
+            return;
+        }
+         toast.success(response.mensaje || 'Inicio de session exitoso')
+         navigate('/');
+    }
     return (
         <>
     <BubbleBackground interactive className="absolute inset-0 flex items-center justify-center">
@@ -43,7 +71,7 @@ export default function Login() {
                         <h2>Sistema de login</h2>
                         <h4>¡Hola!, aqui deberas ingresar tus datos para iniciar sesion</h4>
                     </div>
-                    <form onSubmit={(e) => {handleSubmit(e,{ dire, datos: form, tipo });}}>
+                    <form onSubmit={handleRedirect}>
                         <label htmlFor="username">
                             <p>Usuario</p>
                             <input className='input' type="text" name="username" id="username" value={form.username} onChange={handleChange} maxLength={30} required/>
