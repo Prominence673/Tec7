@@ -6,6 +6,7 @@ import handleChecksession from '@/components/handleChecksession';
 import { WavyBackground } from "@/components/ui/shadcn-io/wavy-background/index";
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import { useMemo } from 'react';
 
 export default function Login() {
     const navigate = useNavigate();
@@ -25,6 +26,19 @@ export default function Login() {
         handleCheck();
     }, [navigate]);
     
+    const wavy = useMemo(() => (
+    <WavyBackground
+        backgroundFill="#0f0f23"
+        colors={["#38bdf8", "#818cf8", "#c084fc", "#e879f9"]}
+        waveWidth={50}
+        blur={10}
+        speed="fast"
+        waveOpacity={0.5}
+        containerClassName="absolute inset-0 w-full h-full z-0"
+        className="absolute inset-0"
+    />
+    ), []);
+
     const handleChange = async (e) => {
         const { name, value, checked } = e.target;
         const rememberme = 'rememberme';
@@ -57,19 +71,10 @@ export default function Login() {
     }
     return (
         <>
-        <WavyBackground
-        backgroundFill="#0f0f23"
-        colors={["#38bdf8", "#818cf8", "#c084fc", "#e879f9"]}
-        waveWidth={50}
-        blur={10}
-        speed="fast"
-        waveOpacity={0.5}
-        containerClassName="h-full w-full"
-        className="absolute inset-0 flex items-center justify-center"
-        >
         <div className='login-main-container'>
+            {wavy}
             <BackButton/> 
-            <div className="login-container">
+            <div className="login-container relative z-10">
                 <div className='login'>
                     <div className='title-login'>
                         <h1>¡Bienvenido de nuevo!</h1>
@@ -106,13 +111,12 @@ export default function Login() {
                         <button className='BtLogin'>Ingresar</button>
                     </form>
                 </div>
-                <div className='copyright-container'>
+                    <div className='copyright-container'>
                     <h4>Todos los derechos reservados @2025</h4>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</WavyBackground>
-</>
+        </>
     );
 } 
