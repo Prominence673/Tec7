@@ -44,9 +44,14 @@ export default function Radio() {
   return (
   <>
   <div className="radio-container">
+  <section className="radio-hero">
+
+  </section>
+  <section className="stream-section">
     <div className="stream-container">
       {streamId ? (<YouTube videoId={streamId} opts={options} />) : videoId ? (<YouTube videoId={videoId} opts={options} />) : 'no hay video o directo disponible'}
     </div>
+  </section>
   </div>
   </>
   )

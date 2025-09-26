@@ -36,7 +36,9 @@ function App() {
       { !isLoginLocation && (
         <Chatbot />
       )}
-      <Footer/>
+      { !isLoginLocation && (
+        <Footer/>
+      )}
     <ToastContainer/>
     </div>
     </>

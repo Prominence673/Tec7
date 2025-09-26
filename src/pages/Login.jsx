@@ -3,7 +3,7 @@ import BackButton from '@/components/BackButton';
 import { useState, useEffect } from 'react'
 import handleSubmit from '@/components/handleSubmit';
 import handleChecksession from '@/components/handleChecksession';
-import { BubbleBackground } from "@/components/bubble-background";
+import { WavyBackground } from "@/components/ui/shadcn-io/wavy-background/index";
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
@@ -57,7 +57,16 @@ export default function Login() {
     }
     return (
         <>
-    <BubbleBackground interactive className="absolute inset-0 flex items-center justify-center">
+        <WavyBackground
+        backgroundFill="#0f0f23"
+        colors={["#38bdf8", "#818cf8", "#c084fc", "#e879f9"]}
+        waveWidth={50}
+        blur={10}
+        speed="fast"
+        waveOpacity={0.5}
+        containerClassName="h-full w-full"
+        className="absolute inset-0 flex items-center justify-center"
+        >
         <div className='login-main-container'>
             <BackButton/> 
             <div className="login-container">
@@ -103,7 +112,7 @@ export default function Login() {
             </div>
         </div>
     </div>
-</BubbleBackground>
+</WavyBackground>
 </>
     );
 } 

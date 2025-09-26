@@ -8,7 +8,7 @@
   --text-dark: #222;
   --h-text-light: #fff;
   --border-radius: 14px;
-  --shadow: 0 2px 12px rgba(121, 151, 223, 0.08);
+  --shadow: 0 2px 12px rgba(26, 42, 79, 0.08);
 }
 
 body {
@@ -17,6 +17,13 @@ body {
   color: var(--text-dark);
   margin: 0;
   padding: 0;
+}
+.hero-section{
+  width: 100%;
+}
+.hero-section img{
+  width: 100%;
+  height: 700px;
 }
 
 .home-main {
