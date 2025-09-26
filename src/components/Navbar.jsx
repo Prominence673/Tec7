@@ -74,7 +74,7 @@ export default function Navbar() {
             {!onSession && (
               <CustomLink to="/login">
                 <div className="sub-nav-item">
-                  <p>Logeo</p><BsPerson />
+                  <p>Login</p><BsPerson />
                 </div>
               </CustomLink>
             )}

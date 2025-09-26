@@ -1,8 +1,10 @@
+
 export default function Footer() {
     return (
-        <footer className="footer">
-            <p>&copy; 2024 Escuela de Educación Técnica N°7 "José Ingenieros". Todos los derechos reservados.</p>
-            <p>Desarrollado por el equipo de TI de la escuela.</p>
+        <footer className="home-footer">
+            <button className="home-btn">Inscribite</button>
+            <button className="home-btn">Contactanos</button>
+            <p>&copy; 2025 Escuela Técnica N°7 "José Ingenieros"</p>
         </footer>
     );
 }

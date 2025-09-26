@@ -9,6 +9,7 @@ import Contact from './pages/Contact'
 import Radio from './pages/Radio'
 import Projects from './pages/Projects'
 import Dashboard from './pages/Dashboard'
+import Footer from './components/Footer';
 import { ToastContainer } from 'react-toastify';
 import './styles/App.css'
 
@@ -35,6 +36,7 @@ function App() {
       { !isLoginLocation && (
         <Chatbot />
       )}
+      <Footer/>
     <ToastContainer/>
     </div>
     </>
