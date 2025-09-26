@@ -1,5 +1,6 @@
 import React from 'react';
 import Computer3D from '../components/Computer3D';
+import VideoCamera3D from '../components/VideoCamera3D';
 import '../styles/home.css';
 
 export default function Home() {
@@ -29,9 +30,13 @@ export default function Home() {
       </section>
 
       <section className="home-tecnicaturas">
-        <h2>Nuestras tecnicaturas</h2>
-        <div className="tecnicaturas-flex">
-          <div className="model3d-container">
+        <div className="ocean">
+          <div className="wave"></div>
+          <div className="wave"></div>
+        </div>
+        <h2 className="tecnicaturas-title">Nuestras Tecnicaturas</h2>
+        <div className="tecnicaturas-area">
+          <div className="computer3d-container">
             <Computer3D />
           </div>
           <div className="tecnicaturas-list">
@@ -48,8 +53,40 @@ export default function Home() {
               </p>
             </div>
           </div>
+          <div className="videocamera3d-container">
+            <VideoCamera3D />
+          </div>
         </div>
       </section>
+
+      <footer className="home-footer">
+        <div className="footer-content">
+          <div className="footer-col">
+            <h4>Escuela Técnica N°7</h4>
+            <p>“José Ingenieros”</p>
+            <p>Formando técnicos líderes para el mundo digital y creativo.</p>
+          </div>
+          <div className="footer-col">
+            <h4>Contacto</h4>
+            <ul>
+              <li>📍 Av. Ejemplo 1234, Ciudad</li>
+              <li>📞 (011) 1234-5678</li>
+              <li>✉️ info@tecnica7.edu.ar</li>
+            </ul>
+          </div>
+          <div className="footer-col">
+            <h4>Redes</h4>
+            <ul className="footer-social">
+              <li><a href="#"><span aria-label="Facebook">🌐</span> Facebook</a></li>
+              <li><a href="#"><span aria-label="Instagram">📸</span> Instagram</a></li>
+              <li><a href="#"><span aria-label="X">🐦</span> X</a></li>
+            </ul>
+          </div>
+        </div>
+        <div className="footer-bottom">
+          &copy; 2025 Escuela Técnica N°7 "José Ingenieros" &mdash; Todos los derechos reservados.
+        </div>
+      </footer>
     </main> 
   )
 }
