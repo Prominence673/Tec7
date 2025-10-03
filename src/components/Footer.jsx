@@ -10,9 +10,9 @@ export default function Footer() {
           <div className="footer-col">
             <h4>Contacto</h4>
             <ul>
-              <li>📍 Av. Ejemplo 1234, Ciudad</li>
+              <li>📍 Manuel Acevedo 1864, Banfield</li>
               <li>📞 (011) 1234-5678</li>
-              <li>✉️ info@tecnica7.edu.ar</li>
+              <li>✉️ eet7lz@yahoo.com.ar</li>
             </ul>
           </div>
           <div className="footer-col">
