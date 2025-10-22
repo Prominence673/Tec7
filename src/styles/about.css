@@ -1,0 +1,162 @@
+.about-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 3rem auto 0 auto;
+  padding: 0 1rem 3rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.about-quienes {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  background: linear-gradient(120deg, #1a2a4f 80%, #3a6ea5 100%);
+  color: #fff;
+  padding: 2.5rem 2rem;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(26,42,79,0.10);
+}
+
+.about-quienes h2 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 1.2rem;
+  letter-spacing: 1px;
+}
+
+.about-quienes p {
+  font-size: 1.15rem;
+  line-height: 1.7;
+  margin: 0 auto;
+  max-width: 700px;
+}
+
+.about-bloques {
+  display: flex;
+  gap: 2.5rem;
+  width: 100%;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.about-bloque {
+  background: rgba(255,255,255,0.92);
+  border-radius: 15px;
+  box-shadow: 0 8px 32px rgba(26,42,79,0.12);
+  padding: 2.2rem 1.7rem;
+  flex: 1 1 420px;
+  min-width: 320px;
+  max-width: 520px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.about-bloque h3 {
+  color: #1a2a4f;
+  font-size: 1.35rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.about-bloque strong {
+  color: #3a6ea5;
+  font-size: 1.08rem;
+  margin-top: 1.2rem;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.about-bloque p {
+  color: #222;
+  font-size: 1.08rem;
+  line-height: 1.6;
+  margin-bottom: 0.7rem;
+}
+
+.about-divider {
+  width: 100%;
+  height: 4px;
+  margin: 3rem 0 2.5rem 0;
+  background: linear-gradient(90deg, #1a2a4f 0%, #3a6ea5 100%);
+  border-radius: 2px;
+  opacity: 0.7;
+}
+
+.about-historia {
+  width: 100%;
+  margin-top: 0;
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.about-historia h2 {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 2.2rem;
+  color: #1a2a4f;
+  letter-spacing: 1px;
+}
+
+.about-historia-bloques {
+  display: flex;
+  gap: 2.5rem;
+  width: 100%;
+  justify-content: center;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+}
+
+.about-historia-bloque {
+  background: rgba(255,255,255,0.92);
+  border-radius: 15px;
+  box-shadow: 0 8px 32px rgba(26,42,79,0.10);
+  padding: 2.2rem 1.7rem;
+  flex: 1 1 420px;
+  min-width: 320px;
+  max-width: 520px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.about-historia-bloque h3 {
+  color: #3a6ea5;
+  font-size: 1.18rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.about-historia-bloque p {
+  color: #222;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  margin-bottom: 0.7rem;
+}
+
+@media (max-width: 900px) {
+  .about-bloques {
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+  }
+  .about-bloque {
+    min-width: 0;
+    width: 100%;
+    max-width: 100%;
+  }
+  .about-historia-bloques {
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+  }
+  .about-historia-bloque {
+    min-width: 0;
+    width: 100%;
+    max-width: 100%;
+  }
+}

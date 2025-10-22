@@ -2,8 +2,9 @@ import { Link, useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import handleChecksession from '@/components/handleChecksession'
 import '../styles/Navbar.css';
+import { RiComputerLine } from "react-icons/ri";
+import { BsCameraReels } from "react-icons/bs";
 import { IoHomeOutline } from "react-icons/io5";
-import { PiStudent } from "react-icons/pi";
 import { BsJournalText, BsTelephone, BsMic, BsPerson, BsClipboard, BsGear } from "react-icons/bs";
 import { LuTableOfContents } from "react-icons/lu";
 import handleCloseSession from '@/components/handleCloseSession.js'
@@ -33,21 +34,22 @@ export default function Navbar() {
               <IoHomeOutline />
             </div>
           </CustomLink> 
+          <CustomLink to="/programacion">
+            <div className="nav-item">
+              <RiComputerLine />
+            </div>
+          </CustomLink> 
+          <CustomLink to="/multimedia">
+            <div className="nav-item">
+              <BsCameraReels  />
+            </div>
+          </CustomLink> 
           <CustomLink to="/about">
             <div className="nav-item">
               <BsJournalText />
             </div>
           </CustomLink> 
-          <CustomLink to="/careers">
-            <div className="nav-item">
-              <PiStudent />
-            </div>
-          </CustomLink> 
-          <CustomLink to="/contact">
-            <div className="nav-item">
-              <BsTelephone />
-            </div>
-          </CustomLink> 
+ 
           <CustomLink to="/radio">
             <div className="nav-item">
               <BsMic />

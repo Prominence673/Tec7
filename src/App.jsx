@@ -2,7 +2,8 @@ import { Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar'
 import Chatbot from './components/Chatbot'
 import Home from './pages/Home'
-import Careers from './pages/Careers'
+import Prog from './pages/Programacion';
+import Mult from './pages/Multimedia';
 import Login from './pages/Login'
 import About from './pages/About'
 import Contact from './pages/Contact'
@@ -25,7 +26,8 @@ function App() {
       )}
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/careers" element={<Careers />} />
+        <Route path="/programacion" element={<Prog />} />
+        <Route path="/multimedia" element={<Mult />} />
         <Route path="/login" element={<Login />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />

@@ -10,7 +10,7 @@ export default function Home() {
       <section className="hero-section">
         <img src="public/FrenteTec7.png" alt="Fachada de la escuela" className="hero-img" />
         <div className="hero-overlay">
-          <h1>Escuela Técnica N°7 "José Ingenieros"</h1>
+          <h1>Escuela Técnica N°7 "Manuel Sadosky"</h1>
           <p className="home-slogan">
             Innovación, conocimiento y futuro: formamos técnicos líderes para el mundo digital y creativo.
           </p>

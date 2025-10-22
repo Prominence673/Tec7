@@ -20,10 +20,14 @@ body {
 }
 .hero-section{
   width: 100%;
+  position: relative; /* Necesario para que el overlay se posicione sobre la imagen */
+  height: 700px;      /* Igual que la imagen */
+  overflow: hidden;
 }
 .hero-section img{
   width: 100%;
-  height: 700px;
+  height: 100%;       /* Cambia a 100% para que tome el alto del contenedor */
+  object-fit: cover;
 }
 
 .home-main {
@@ -55,11 +59,40 @@ body {
   box-shadow: 0 2px 8px rgba(26, 42, 79, 0.12);
 }
 
-.home-slogan {
-  font-size: 1.3rem;
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;       /* Solo ocupa el hero-section */
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: linear-gradient(
+    120deg,
+    rgba(26, 42, 79, 0.25) 70%,
+    rgba(58, 110, 165, 0.25) 100%
+  );
+  backdrop-filter: blur(8px) brightness(0.9);
+  -webkit-backdrop-filter: blur(8px) brightness(0.9);
+}
+
+.hero-overlay h1 {
+  font-size: 2.8rem;
   color: #fff;
-  margin: 0;
+  font-weight: 700;
+  margin-bottom: 1.2rem;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.25);
+}
+
+.home-slogan {
+  font-size: 1.4rem;
+  color: #e3e8f0;
   font-weight: 500;
+  margin: 0;
   text-shadow: 0 2px 8px rgba(0,0,0,0.18);
   max-width: 600px;
   margin-left: auto;

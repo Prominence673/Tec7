@@ -1,0 +1,19 @@
+.career-aside-content {
+  width: 100%;
+  min-height: 260px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 1rem 0;
+}
+
+.career-aside-content canvas {
+  width: 220px !important;
+  height: 220px !important;
+  min-width: 180px;
+  min-height: 180px;
+  background: transparent;
+  border-radius: 14px;
+  box-shadow: 0 2px 12px rgba(26,42,79,0.08);
+  display: block;
+}
